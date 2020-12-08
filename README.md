@@ -8,6 +8,6 @@
 
 ```
 DATABASE_URL=<database url goes here>/project3?retryWrites=truew&w=majority
-SECRET=<secret goes here>
+SECRET=<a secret string goes here>
 
 ```
