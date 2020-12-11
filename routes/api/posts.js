@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const scoresCtrl = require('../../controllers/scores');
+const postsCtrl = require('../../controllers/posts');
 
-router.get('/', scoresCtrl.highScores);
+router.get('/', postsCtrl.highScores);
 
 
 
@@ -10,7 +10,7 @@ router.get('/', scoresCtrl.highScores);
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
 router.use(require('../../config/auth'));
-router.post('/', checkAuth, scoresCtrl.create);
+router.post('/', checkAuth, postsCtrl.create);
 
 /*----- Helper Functions -----
 I will need this in every route i want protected*/

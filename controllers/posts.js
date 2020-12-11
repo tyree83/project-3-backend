@@ -1,5 +1,5 @@
   
-const Score = require("../models/score");
+const Score = require("../models/post");
 
 module.exports = {
   create,
@@ -9,7 +9,7 @@ module.exports = {
 async function create(req, res) {
   console.log(req.user);
   try {
-    await Score.create(req.body);
+    await Post.create(req.body);
     // Use the highScores action to return the list
     highScores(req, res);
   } catch (err) {
@@ -18,10 +18,10 @@ async function create(req, res) {
 }
 
 async function highScores(req, res) {
-  const scores = await Score.find({})
+  const posts = await Post.find({})
     .sort({ numGuesses: 1, seconds: 1 })
     // default to a limit of 20 high scores
     // if not specified in a query string
     .limit(req.query.limit || 20);
-  res.json(scores);
+  res.json(posts);
 }

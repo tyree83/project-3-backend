@@ -7,7 +7,7 @@ const app = express();
 
 require('dotenv').config();
 
-const scoresRouter = require('./routes/api/scores');
+const postsRouter = require('./routes/api/posts');
 const usersRouter = require('./routes/api/users');
 
 
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use('/api/scores', scoresRouter);
+app.use('/api/posts', postsRouter);
 app.use('/api/users', usersRouter);
 
 const port = process.env.PORT || 3001;

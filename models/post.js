@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const scoreSchema = new Schema({
-  initials: String,
+const postSchema = new Schema({
+  textPost: String,
   numGuesses: Number,
   seconds: Number
 }, {
@@ -11,9 +11,9 @@ const scoreSchema = new Schema({
 
 // Here's an example of Mongoose Middleware
 // Ensure that initials are uppercase & not longer than 3 characters
-scoreSchema.pre('save', function (next) {
+postSchema.pre('save', function (next) {
   this.initials = this.initials.substr(0, 3).toUpperCase();
   next();
 });
 
-module.exports = mongoose.model('Score', scoreSchema);
+module.exports = mongoose.model('Post', postSchema);
