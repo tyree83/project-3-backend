@@ -6,6 +6,7 @@ const postSchema = new Schema({
   datePosted: String,
   location: String,
   textPost: String,
+  img: { data: Buffer, contentType: String}
 }, {
   timestamps: true
 });
